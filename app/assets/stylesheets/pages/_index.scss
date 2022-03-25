@@ -1,2 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}

@@ -3,12 +3,27 @@
 
 <h2>Bookmarks</h2>
 
-<ul>
-    <% @list.bookmarks.each do |bookmark| %>
-        <li><%= image_tag bookmark.movie.poster_url, alt: "alttext", width: 200 %>
-<%= bookmark.movie.title %>: <%= bookmark.comment  %> <%= link_to "Destroy", bookmark_path(bookmark), method: :delete, data: {confirm: "Are you sure"} %></li>
-    <% end %>
-</ul>
+<div class="container">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card-trip">
+      <%= image_tag bookmark.movie.poster_url, alt: "alttext", width: 200%>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= bookmark.movie.title %></h2>
+          <p><%= bookmark.comment  %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= link_to "Destroy", bookmark_path(bookmark), method: :delete, data: {confirm: "Are you sure"} %></h2>   
+        
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+    
+
 
 <%= link_to "Back to list", lists_path  %>
 <%= link_to "Add Bookmark", new_list_bookmark_path(@list)  %>
